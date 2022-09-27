@@ -1,0 +1,10 @@
+Django==4.0.6
+nsepython==0.0.972
+pandas==1.4.3
+pytz==2021.3
+requests==2.27.1
+smartapi==1.1.0
+smartapi_python==1.2.9
+sympy==1.6
+telepot==12.7
+yfinance==0.1.63

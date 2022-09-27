@@ -1,0 +1,927 @@
+INFO 2022-09-15 18:22:57,123 strategy 34367 123145654882304 Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: table datamanagement_positions has no column named pnl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 259, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 209, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: table datamanagement_positions has no column named pnl
+
+INFO 2022-09-15 18:22:58,706 strategy 34367 123145654882304 Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: table datamanagement_positions has no column named pnl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 259, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 209, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: table datamanagement_positions has no column named pnl
+
+INFO 2022-09-15 18:23:00,329 strategy 34367 123145654882304 Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: table datamanagement_positions has no column named pnl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 259, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 209, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: table datamanagement_positions has no column named pnl
+
+INFO 2022-09-15 18:23:01,984 strategy 34367 123145654882304 Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: table datamanagement_positions has no column named pnl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 259, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 209, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: table datamanagement_positions has no column named pnl
+
+INFO 2022-09-15 18:23:03,603 strategy 34367 123145654882304 Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: table datamanagement_positions has no column named pnl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 259, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 209, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: table datamanagement_positions has no column named pnl
+
+INFO 2022-09-15 18:23:05,168 strategy 34367 123145654882304 Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: table datamanagement_positions has no column named pnl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 259, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 209, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: table datamanagement_positions has no column named pnl
+
+INFO 2022-09-16 04:43:59,104 strategy 65346 123145492738048 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 229, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'BANKNIFTY15SEP2240900PE'
+
+INFO 2022-09-16 04:44:02,086 strategy 65346 123145492738048 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 178, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/Mamu_options/datamanagement/helpful_scripts/strategy.py", line 229, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'BANKNIFTY15SEP2240900PE'
+
+INFO 2022-09-19 14:16:55,095 strategy 37420 123145548722176 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 267, in run
+    positions.save()
+TypeError: save() missing 1 required positional argument: 'self'
+
+INFO 2022-09-19 14:17:32,055 strategy 37496 123145505808384 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:17:34,117 strategy 37496 123145505808384 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:09,677 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:10,496 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:11,325 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:12,061 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:13,953 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:15,948 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:17,071 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:18:18,986 strategy 37500 123145641996288 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 233, in market_order
+    sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
+KeyError: 'NIFTY15SEP2217600PE'
+
+INFO 2022-09-19 14:25:14,735 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:17,738 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:21,238 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:24,072 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:27,090 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:29,441 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:31,683 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:34,209 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:36,630 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:25:39,274 strategy 37804 123145536638976 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1485, in to_python
+    parsed = parse_datetime(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/utils/dateparse.py", line 114, in parse_datetime
+    return datetime.datetime.fromisoformat(value)
+TypeError: fromisoformat: argument must be str
+
+INFO 2022-09-19 14:28:00,183 strategy 37903 123145480642560 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1506, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“_” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format.']
+
+INFO 2022-09-19 14:28:02,648 strategy 37903 123145480642560 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1506, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“_” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format.']
+
+INFO 2022-09-19 14:28:04,932 strategy 37903 123145480642560 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 181, in websocket
+    data = self.market_order()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 254, in market_order
+    p = self.add_positions(
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 212, in add_positions
+    strategy1.save()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1546, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1524, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1403, in get_prep_value
+    return self.to_python(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/django/db/models/fields/__init__.py", line 1506, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“_” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format.']
+
+INFO 2022-09-22 17:59:19,334 strategy 37625 123145681903616 Traceback (most recent call last):
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 186, in websocket
+    data = self.main()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 141, in main
+    self.shift_position()
+  File "/Users/sudhanshu/Desktop/algo-trading/PROJECTS/PROJECT45_angel_options/datamanagement/helpful_scripts/strategy.py", line 114, in shift_position
+    if self.total_premium/2>400:
+AttributeError: 'run_strategy' object has no attribute 'total_premium'
+
