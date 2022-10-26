@@ -110,7 +110,7 @@
                   </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a href="/handleLogout" class="dropdown-item ai-icon">
+                  <a href="/option_bot/handleLogout" class="dropdown-item ai-icon">
                     <svg
                       id="icon-logout"
                       xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +138,12 @@
                   <span class="nav-text mm-show">Dashboard</span>
                 </a>
               </li>
+              <li>
+                <a href="/option_bot/settings" class="ai-icon" aria-expanded="false">
+                  <i class="flaticon-025-dashboard"></i>
+                  <span class="nav-text mm-show">Settings</span>
+                </a>
+              </li>
               <!-- <li>
                 <a href="/all_bots" class="ai-icon" aria-expanded="false">
                   <i class="flaticon-040-graph"></i>
@@ -159,12 +165,7 @@
                 </a>
               </li>
   
-              <li>
-                <a href="/option_bot/position" class="ai-icon" aria-expanded="false">
-                  <i class="flaticon-381-notepad"></i>
-                  <span class="nav-text">Present Position</span>
-                </a>
-              </li>
+          
   
               <li>
                 <a href="/option_bot/handleLogout" class="ai-icon" aria-expanded="false">
@@ -185,7 +186,7 @@
 
         <div class="content-body" style="padding: 0px;">
           <div class="container-fluid" style="padding: 10%;">
-					<div class="col-xl-6 col-lg-12" style="width: 100%; height: 1000px;">
+					<div class="col-xl-6 col-lg-12" style="width: 100%; height: 400px;">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Start Details</h4>
@@ -197,166 +198,176 @@
 
                                     <form action="/option_bot/start_strategy/" method="post">
                                       {% csrf_token %}
-
-                                      <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label">angel api keys</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="api keys" value="{{ list.angel_api_keys }}" name="angel_api_keys">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label">angel client id</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="client id" value="{{ list.angel_client_id }}" name="angel_client_id">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
-                                      <label class="col-sm-3 col-form-label">angel password</label>
-                                      <div class="col-sm-9">
-                                          <input type="text" class="form-control" placeholder="client id" value="{{ list.angel_password }}" name="angel_password">
-                                      </div>
-                                  </div>
-
-
-
-
                                         <div class="mb-3 row">
-                                            <label class="col-sm-3 col-form-label">present expiry</label>
+                                            <label class="col-sm-3 col-form-label">Symbol</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="weekly_expiry" value="{{ list.weekly_expiry }}" name="weekly_expiry">
+                                                <input type="text" class="form-control" placeholder="symbol" value="" name="symbol">
                                             </div>
                                         </div>
 
-
-
-
-                                  <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">lots</label>
+                            
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label">Position</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" placeholder="lots" value="1" name="lots">
+                                        <input type="number" class="form-control" placeholder="amount_invested" value="10000" name="amount_invested">
                                     </div>
                                 </div>
-
-                                {% if "on" in list.bot %}
-                                        <fieldset class="mb-3">
-                                            <div class="row">
-                                                <label class="col-form-label col-sm-3 pt-0">bot</label>
-                                                <div class="col-sm-9">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="bot" value="on" checked="">
-                                                        <label class="form-check-label">
-                                                            on
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="bot" value="off">
-                                                        <label class="form-check-label">
-                                                            off
-                                                        </label>
-                                                    </div>
-              
-  
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                  {% endif %}
-
-
-                                  {% if "off" in list.bot %}
-                                  <fieldset class="mb-3">
-                                      <div class="row">
-                                          <label class="col-form-label col-sm-3 pt-0">bot</label>
-                                          <div class="col-sm-9">
-                                              <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="bot" value="on">
-                                                  <label class="form-check-label">
-                                                      on
-                                                  </label>
-                                              </div>
-                                              <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="bot" value="off" checked="">
-                                                  <label class="form-check-label">
-                                                      off
-                                                  </label>
-                                              </div>
-        
-
-                                          </div>
-                                      </div>
-                                  </fieldset>
-                            {% endif %}
-
-                            {% if "on" in list.paper %}
-                                        <fieldset class="mb-3">
-                                          <div class="row">
-                                              <label class="col-form-label col-sm-3 pt-0">paper</label>
-                                              <div class="col-sm-9">
-                                                  <div class="form-check">
-                                                      <input class="form-check-input" type="radio" name="paper" value="on" checked="">
-                                                      <label class="form-check-label">
-                                                          on
-                                                      </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                      <input class="form-check-input" type="radio" name="paper" value="off">
-                                                      <label class="form-check-label">
-                                                          off
-                                                      </label>
-                                                  </div>
-            
-
-                                              </div>
-                                          </div>
-                                      </fieldset>
-                                      {% endif %}
-
-                                      {% if "off" in list.paper %}
-                                      <fieldset class="mb-3">
-                                        <div class="row">
-                                            <label class="col-form-label col-sm-3 pt-0">paper</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="paper" value="on">
-                                                    <label class="form-check-label">
-                                                        on
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="paper" value="off" checked="">
-                                                    <label class="form-check-label">
-                                                        off
-                                                    </label>
-                                                </div>
-          
-
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    {% endif %}
-
                                         <div class="mb-3 row">
-                                            <div class="col-sm-10">
-                                                <button type="submit" name ="action" value="button" class="btn btn-primary">Start the strategy</button>
-                                            </div>
-
-
-
+                                          <div class="col-rm-50">
+                                                <button type="submit" name ="action" value="sell" class="btn btn-danger">Sell</button>
+                                                <button type="submit" name ="action" value="buy" class="btn btn-success">Buy</button>
+                                              </div>
                                         </div>
-
-
-
-
                                     </form>
                                 </div>
                             </div>
                         </div>
 					</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-responsive-md">
+                <thead>
+                  <tr>
+                    <th><strong></strong></th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>SYMBOL</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>TIME-IN</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>PRICE-IN</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>CURRENT</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>QUANTITY</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>PNL</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)">
+                      <strong>SIDE</strong>
+                    </th>
+                    <th style="color: rgb(0, 0, 0)"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for position in list2 %}
 
+                  <tr>
+                    <td><strong>#</strong></td>
+                    <td style="color: rgb(68, 207, 68)">
+                      {{ position.symbol }}
+                    </td>
+                    <td style="color: rgb(0, 0, 0)">
+                      {{ position.time_in }}
+                    </td>
+                    <td style="color: rgb(0, 0, 0); font-weight: bold">
+                      {{ position.price_in }}
+                    </td>
+                    <td style="color: rgb(0, 0, 0); font-weight: bold">
+                      {{ position.current_price }}
+                    </td>
+                    <td style="color: rgb(0, 0, 0); font-weight: bold">
+                      {{ position.quantity }}
+                    </td>
+                    {% if position.pnl >= 0 %}
+                    <td
+                      style="color: rgb(56, 224, 70); font-weight: bold"
+                    >
+                      {{ position.pnl }}
+                    </td>
+                    {% endif %} 
+                    {% if position.pnl < 0 %}
+                    <td
+                      style="color: rgb(223, 31, 31); font-weight: bold"
+                    >
+                      {{ position.pnl }}
+                    </td>
+                    {% endif %} 
+                    {% if 'BUY' in position.side %}
+                    <td
+                      style="color: rgb(56, 224, 70); font-weight: bold"
+                    >
+                      {{ position.side }}
+                    </td>
+                    {% endif %} 
+                    {% if 'SELL' in position.side %}
+                    <td
+                      style="color: rgb(241, 55, 55); font-weight: bold"
+                    >
+                      {{ position.side }}
+                    </td>
+                    {% endif %}
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          type="button"
+                          class="btn btn-success light sharp"
+                          data-bs-toggle="dropdown"
+                        >
+                          <svg
+                            width="20px"
+                            height="20px"
+                            viewbox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              stroke-width="1"
+                              fill="none"
+                              fill-rule="evenodd"
+                            >
+                              <rect
+                                x="0"
+                                y="0"
+                                width="24"
+                                height="24"
+                              ></rect>
+                              <circle
+                                fill="#000000"
+                                cx="5"
+                                cy="12"
+                                r="2"
+                              ></circle>
+                              <circle
+                                fill="#000000"
+                                cx="12"
+                                cy="12"
+                                r="2"
+                              ></circle>
+                              <circle
+                                fill="#000000"
+                                cx="19"
+                                cy="12"
+                                r="2"
+                              ></circle>
+                            </g>
+                          </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                          <form action="../../option_bot/stop_symbol/" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{position.symbol}}" name="symbol">
+                          <button class="dropdown-item" type="submit" >Stop Execution</button
+                          >
+                        </form>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
                 </div>
             </div>
         </div>
+        
         <!--**********************************
             Content body end
         ***********************************-->

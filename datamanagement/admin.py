@@ -7,3 +7,4 @@ from .models import *
 admin.site.register(strategy)
 
 admin.site.register(positions)
+admin.site.register(stop_symboll)

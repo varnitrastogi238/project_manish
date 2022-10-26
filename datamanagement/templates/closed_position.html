@@ -162,6 +162,12 @@
                   <span class="nav-text mm-show">Dashboard</span>
                 </a>
               </li>
+              <li>
+                <a href="/option_bot/settings" class="ai-icon" aria-expanded="false">
+                  <i class="flaticon-025-dashboard"></i>
+                  <span class="nav-text mm-show">Settings</span>
+                </a>
+              </li>
               <!-- <li>
                 <a href="/all_bots" class="ai-icon" aria-expanded="false">
                   <i class="flaticon-040-graph"></i>
@@ -183,15 +189,9 @@
                 </a>
               </li>
   
+            
               <li>
-                <a href="/option_bot/position" class="ai-icon" aria-expanded="false">
-                  <i class="flaticon-381-notepad"></i>
-                  <span class="nav-text">Present Position</span>
-                </a>
-              </li>
-  
-              <li>
-                <a href="/option_bot/position" class="ai-icon" aria-expanded="false">
+                <a href="/option_bot/handleLogout" class="ai-icon" aria-expanded="false">
                   <i class="flaticon-381-compass-1"></i>
                   <span class="nav-text">Logout</span>
                 </a>
@@ -217,9 +217,8 @@
                 </div>
                 <!-- row -->
 
-                <div id="get-data" hx-get="/get-current-price/" hx-trigger="every 2s" hx-swap="innerhtml">
- 
-            
+                <div id="get-data" >
+
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -236,7 +235,7 @@
                                                 <th style="color: rgb(0, 0, 0);"><strong>SYMBOL</strong></th>
                                                 <th style="color: rgb(0, 0, 0);"><strong>TIME-IN</strong></th>
                                                 <th style="color: rgb(0, 0, 0);"><strong>PRICE-IN</strong></th>
-                                                <th style="color: rgb(0, 0, 0);"><strong>CURRENT</strong></th>
+                                                <th style="color: rgb(0, 0, 0);"><strong>QUANTITY</strong></th>
                                                 <th style="color: rgb(0, 0, 0);"><strong>PNL</strong></th>
                                                 <th style="color: rgb(0, 0, 0);"><strong>SIDE</strong></th>
                                                 <th style="color: rgb(0, 0, 0);"><strong>PRICE-OUT</strong></th>
@@ -252,7 +251,7 @@
                                                 <td style="color: rgb(68, 207, 68);">{{ position.symbol }}</td>
                                                 <td style="color: rgb(0, 0, 0);">{{ position.time_in }}</td>
                                                 <td style="color: rgb(0, 0, 0); font-weight: bold;">{{ position.price_in }}</td>
-                                                <td style="color: rgb(0, 0, 0); font-weight: bold;">{{ position.current_price }}</td>
+                                                <td style="color: rgb(0, 0, 0); font-weight: bold;">{{ position.quantity }}</td>
 
                                                 {% if position.pnl >= 0 %}
                                                 <td style="color: rgb(56, 224, 70); font-weight: bold;">{{ position.pnl }}</td>
@@ -263,15 +262,13 @@
                                                 {% endif %}
 
 
-                                                {% if 'LONG' in position.side %}
+                                                {% if 'BUY' in position.side %}
                                                 <td style="color: rgb(56, 224, 70); font-weight: bold;">{{ position.side }}</td>
                                                 {% endif %}
 
-                                                {% if 'SHORT' in position.side %}
+                                                {% if 'SELL' in position.side %}
                                                 <td style="color: rgb(241, 55, 55); font-weight: bold;">{{ position.side }}</td>
                                                 {% endif %}
-
-
 
                                                 <td style="color: rgb(0, 0, 0);">{{ position.price_out }}</td>
                                                 <td style="color: rgb(0, 0, 0);">{{ position.time_out }}</td>
@@ -281,10 +278,7 @@
 														<button type="button" class="btn btn-success light sharp" data-bs-toggle="dropdown">
 															<svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 														</button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="#">close position</a>
-															<a class="dropdown-item" href="#">close all position</a>
-														</div>
+														
 													</div>
 
 												</td>

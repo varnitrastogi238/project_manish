@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 import random
+from requests import delete
 from sympy import div
 from datamanagement.models import *
 import yfinance as yf
@@ -12,260 +13,299 @@ from smartapi import SmartWebSocket
 from .background_functions import *
 from pytz import timezone
 import traceback
+import sys
+import pyotp
 from datetime import time, datetime
+
 # import telepot
 # bot = telepot.Bot("5448843199:AAEKjMn2zwAyZ5tu8hsLIgsakxoLf980BoY")
 # bot.getMe()
 import logging
-logger = logging.getLogger('dev_log')
+try:
+    import telepot
+    bot = telepot.Bot('5764368331:AAGrun4IEIUf75APRxcp_IXZmUz_oeavUGo')
+    bot.getMe()
+except:
+    pass
+logger = logging.getLogger("dev_log")
 
 
-class run_strategy():
-
+class run_strategy:
     def __init__(self, strategy):
         self.parameters = strategy
+        self.list = {"open": 0, "high": 0, "low": 99999999, "close": 0}
+        self.prev_high = 0
+        self.prev_low = 9999999
+        self.stoploss = 0
+        self.invested = int(self.parameters.amount_invested)
+        self.position = "off"
+        self.parameters.stoploss = int(self.parameters.stoploss)
+        self.max_stoploss=self.parameters.max_stoploss
+        self.max_stoploss/=100.0
         self.ltp_prices = {}
-        self.difference=200
-        self.trigger_at=800
-        self.dicts={}
-        self.market="undone"
-        self.shifted=0
-        self.time=tim.time()
 
     def ltp_nifty_options(self):
+        # print()
+        self.list["close"] = self.obj.ltpData(
+            "NSE", self.parameters.symbol, str(self.parameters.token)
+        )["data"]["ltp"]
+        if self.list["close"] > self.list["high"]:
+            self.list["high"] = self.list["close"]
+        if self.list["close"] < self.list["low"]:
+            self.list["low"] = self.list["close"]
         
-        
-
-        position_opened = positions.objects.filter(
-           status='OPEN')
-        
-        self.nifty_price = self.obj.ltpData("NSE", 'NIFTY', "26000")['data']['ltp']
-
-        position_opened = positions.objects.filter(
-             status='OPEN')
-        print(position_opened.all())
-        for i in range(len(position_opened)):
-            try:
-
-                self.ltp_prices[position_opened[i].token] = self.obj.ltpData("NFO", position_opened[i].symbol, str(position_opened[i].token))['data']['ltp']
-                position_opened[i].current_price = float(
-                    self.ltp_prices[position_opened[i].token])
-
-                if position_opened[i].side=="LONG":
-                    position_opened[i].pnl= (position_opened[i].current_price-position_opened[i].price_in)
-
-                if position_opened[i].side=="SHORT":
-                    position_opened[i].pnl= (position_opened[i].price_in-position_opened[i].current_price)
-
-                position_opened[i].save()
-
-            except Exception:
-                print(traceback.format_exc())
-                logger.info(str(traceback.format_exc()))
-
-
-    def shift_position(self):
-
-        self.shifted=self.shifted+1
-        position_opened = positions.objects.filter(status='OPEN')
-        print(position_opened.all())
-        pnl=10000
-        
-        for i in range(len(position_opened)):
-            if position_opened[i].pnl<pnl:
-                pnl=position_opened[i].pnl
-                close_position_val=i
-
-
-
-        # for i in range(len(position_opened)):
-        position_opened[close_position_val].status = "CLOSED"
-        position_opened[close_position_val].time_out = datetime.now(timezone("Asia/Kolkata"))
-        position_opened[close_position_val].price_out = float(
-            self.ltp_prices[position_opened[close_position_val].token])
-        position_opened[close_position_val].save()
-
-
-
-        strike_price = round(self.nifty_price/50, 0)*50
-        self.last_market_order=self.nifty_price
-        
-
-        symbol_pe = "NIFTY"+self.parameters.weekly_expiry +str(int(strike_price))+'PE'
-        symbol_ce = "NIFTY"+self.parameters.weekly_expiry +str(int(strike_price))+'CE'
-
-        df=pd.read_csv("datamanagement/helpful_scripts/scripts.csv")
-
-        for i in range(len(df)):
-            if df['symbol'][i]==symbol_pe:
-                self.dicts[df['symbol'][i]]=df['token'][i]
-
-            elif df['symbol'][i]==symbol_ce:
-                self.dicts[df['symbol'][i]]=df['token'][i]
-
-        sell_price_put=self.obj.ltpData("NFO", symbol_pe, str(self.dicts[symbol_pe]))['data']['ltp']
-        sell_price_call=self.obj.ltpData("NFO", symbol_ce, str(self.dicts[symbol_ce]))['data']['ltp']
-
-
-        p = self.add_positions(symbol_pe, 'SHORT', sell_price_put, 0, 0)
-        p = self.add_positions(symbol_ce, 'SHORT', sell_price_call, 0, 0)
-
-        if self.shifted==1:
-            if self.total_premium/2>400:
-                self.total_premium=self.total_premium/2
-
-            else:
-                self.total_premium=400
-
-        if self.shifted==4:
-            self.close_all_positions()
-
-
-    def close_all_positions(self):
-
-        position_opened = positions.objects.filter(status='OPEN')
-
-        for i in range(len(position_opened)):
-            position_opened[i].status = "CLOSED"
-            position_opened[i].time_out = datetime.now(timezone("Asia/Kolkata"))
-            position_opened[i].price_out = float(
-                self.ltp_prices[position_opened[i].token])
-            position_opened[i].save()
-
-        return None
-
     def main(self):
+        
+        if (
+            (
+                ((self.list["high"] - self.list["low"]) * 100)
+                > (float(self.parameters.range) * self.list["close"])
+            )
+            and (self.list["close"] < self.list["open"])
+            and self.parameters.sell == "on"
+            and self.position == "off"
+        ):
+            self.add_positions(
+                self.parameters.symbol, "SELL", self.list["close"], 00, 00
+            )
+            # stoploss
+            b=self.parameters.symbol[:-3]+".NS"
+            df = yf.download(b, period='2d', interval="5m")
+            aa=df['High'][-1]
+            aaa=df['High'][-2]
+            self.stoploss = min(
+                max(aa,aaa),
+                self.list["close"] + (self.max_stoploss * self.list["close"]),
+            )
+            self.position = "on"
 
+        if (
+            (
+                ((self.list["high"] - self.list["low"]) * 100)
+                > (float(self.parameters.range) * self.list["close"])
+            )
+            and self.list["close"] > self.list["open"]
+            and self.parameters.buy == "on"
+            and self.position == "off"
+        ):
+            self.add_positions(
+                self.parameters.symbol, "BUY", self.list["close"], 00, 00
+            )
+            b=self.parameters.symbol[:-3]+".NS"
+            df = yf.download(b, period='2d', interval="5m")
+            aa=df['Low'][-1]
+            aaa=df['Low'][-2]
+            self.stoploss = min(
+                min(aa,aaa),
+                self.list["close"] - (self.max_stoploss * self.list["close"]),
+            )
+            self.position = "on"
 
-        if (float(self.nifty_price) >= self.last_market_order+50):
-            self.shift_position()
+        if (
+            self.stoploss != 0
+            and self.list["close"] < self.stoploss
+            and self.parameters.stoploss > 0
+            and self.parameters.buy == "on"
+            and self.position == "on"
+        ):
+            self.current_position.status = "CLOSED"
+            self.current_position.pnl=self.list['close']-self.current_position.price_in
+            self.current_position.price_out = self.list["close"]
+            self.current_position.time_out = datetime.now(timezone("Asia/Kolkata"))
+            self.current_position.save()
+            self.close_position(
+                self.parameters.symbol, "SELL", self.current_position.quantity
+            )
+            self.position = "off"
+            self.invested = self.invested + (
+                (self.invested * float(self.parameters.position_increase)) / 100
+            )
+            self.parameters.stoploss -= 1
 
-
-        if (float(self.nifty_price) <= self.last_market_order-50):
-            # bot.sendMessage(1039725953,"closing position")
-            self.shift_position()
-
-        if time(15, 20) <= datetime.now(timezone("Asia/Kolkata")).time():
-
-            # bot.sendMessage(1039725953,"closing position")
-            self.close_all_positions()
-            self.parameters.bots_started=0
-            self.parameters.save()
-            return "complete"
-
+        if (
+            self.stoploss != 0
+            and self.list["close"] > self.stoploss
+            and self.parameters.stoploss > 0
+            and self.parameters.sell == "on"
+            and self.position == "on"
+        ):
+            self.current_position.status = "CLOSED"
+            self.current_position.price_out = self.list["close"]
+            self.current_position.pnl=self.current_position.price_in-self.list['close']
+            self.current_position.time_out = datetime.now(timezone("Asia/Kolkata"))
+            self.current_position.save()
+            self.close_position(
+                self.parameters.symbol, "BUY", self.current_position.quantity
+            )
+            self.position = "off"
+            self.invested = self.invested + (
+                (self.invested * float(self.parameters.position_increase)) / 100
+            )
+            self.parameters.stoploss -= 1
 
     def login(self):
-        for i in range(10):
-            try:
-                self.obj = SmartConnect(api_key=self.parameters.angel_api_keys)
-                data = self.obj.generateSession(self.parameters.angel_client_id, self.parameters.angel_password)
-                refreshToken = data['data']['refreshToken']
-                self.feedToken = self.obj.getfeedToken()
-                break
-            except:
-                tim.sleep(1)
-                i+=1
+        try:
+            self.obj = SmartConnect(api_key=self.parameters.angel_api_keys)
+            data = self.obj.generateSession(
+                self.parameters.angel_client_id,
+                self.parameters.angel_password,
+                pyotp.TOTP(self.parameters.totp).now(),
+            )
+            refreshToken = data["data"]["refreshToken"]
+            self.feedToken = self.obj.getfeedToken()
+        except:
+            print(traceback.format_exc())
+            logger.info(str(traceback.format_exc()))
 
     def websocket(self):
 
+        self.login()
+        start = 0
+        start_of_candle = -1
         while True:
             try:
-
-
-
-
-                if time(10, 30) <= datetime.now(timezone("Asia/Kolkata")).time() and self.market=="undone":
-                    self.time=tim.time()
-
-                    self.login()
-                    self.nifty_price=self.obj.ltpData("NSE", 'NIFTY', "26000")['data']['ltp']
-                    data = self.market_order()
-                    self.market="done"
-
-                if self.market=="done" and tim.time()>=self.time+300:
-                    self.time=tim.time()
+                if (
+                    start == 0
+                    and datetime.now(timezone("Asia/Kolkata")).minute % 5 == 0
+                ):
+                    start = 1
+                if time(15, 20) <= datetime.now(timezone("Asia/Kolkata")).time():
+                    if self.position=="on" and self.parameters.buy=="on":
+                        self.current_position.status = "CLOSED"
+                        self.current_position.price_out = self.list["close"]
+                        self.current_position.pnl=self.list['close']-self.current_position.price_in
+                        self.current_position.time_out = datetime.now(timezone("Asia/Kolkata"))
+                        self.current_position.save()
+                        self.close_position(
+                            self.parameters.symbol, "SELL", self.current_position.quantity
+                        )
+                    if self.position=="on" and self.parameters.sell=="on":
+                        self.current_position.status = "CLOSED"
+                        self.current_position.price_out = self.list["close"]
+                        self.current_position.pnl=self.current_position.price_in-self.list['close']
+                        self.current_position.time_out = datetime.now(timezone("Asia/Kolkata"))
+                        self.current_position.save()
+                        self.close_position(
+                            self.parameters.symbol, "BUY", self.current_position.quantity
+                        )
+                    return "done_fire_fire"
+                temp = strategy.objects.get(username="testing")
+                if temp.stop == "on":
+                    return "done_double_fire"
+                
+                if self.position=="on":
+                    self.current_position.current_price=self.list['close']
+                    if self.parameters.buy=="on":
+                        self.current_position.pnl=self.list['close']-self.current_position.price_in
+                        self.current_position.save()
+                    else:
+                        self.current_position.pnl=self.current_position.price_in-self.list['close']
+                        self.current_position.save()
+                    temp2 = stop_symboll.objects.filter(symbol=self.current_position.symbol)
+                    if temp2 :
+                        self.position="off"
+                        self.current_position.status = "CLOSED"
+                        self.current_position.price_out = self.list["close"]
+                        self.current_position.time_out = datetime.now(timezone("Asia/Kolkata"))
+                        self.current_position.save()
+                        stop_symboll.objects.all().delete()
+                        return "done_double_fire"
+                if self.parameters.stoploss == 0:
+                    return "triple_fire_fire"
+                if start == 1:
+                    if (
+                        start_of_candle != datetime.now(timezone("Asia/Kolkata")).minute
+                        and datetime.now(timezone("Asia/Kolkata")).minute % 5== 0
+                    ):
+                        start_of_candle = datetime.now(timezone("Asia/Kolkata")).minute
+                        self.list["open"] = self.obj.ltpData(
+                            "NSE", self.parameters.symbol, str(self.parameters.token)
+                        )["data"]["ltp"]
+                        
+                        self.prev_high = self.list["high"]
+                        self.prev_low = self.list["low"]
                     self.ltp_nifty_options()
-                    data = self.main()
-                    if data == "complete":
-                        return None
-
-            except Exception:
+                    self.main()
+            except Exception as e:
                 print(traceback.format_exc())
+                try:
+                     bot.sendMessage(
+                            1190128536, f"Manish sir ka exception{e}")
+                except:
+                    pass
                 logger.info(str(traceback.format_exc()))
+                self.login()
 
+    def real_orders(self, symbol, side):
 
+        if self.parameters.paper == "off":
+            if side == "LONG":
+                side = "BUY"
 
+            else:
+                side = "SELL"
+            try:
+                orderparams = {
+                    "variety": "NORMAL",
+                    "tradingsymbol": str(symbol),
+                    "symboltoken": str(self.parameters.token),
+                    "transactiontype": str(side),
+                    "exchange": "NSE",
+                    "ordertype": "MARKET",
+                    "producttype": "INTRADAY",
+                    "duration": "DAY",
+                    "quantity": str(int(self.invested / self.list["close"])),
+                }
+
+                orderId = self.obj.placeOrder(orderparams)
+                print("The order id is: {}".format(orderId))
+            except Exception as e:
+                print("Order placement failed: {}".format(e.message))
+
+    def close_position(self, symbol, side, quantity):
+        if self.parameters.paper == "off":
+            if side == "LONG":
+                side = "BUY"
+
+            else:
+                side = "SELL"
+            try:
+                orderparams = {
+                    "variety": "NORMAL",
+                    "tradingsymbol": str(symbol),
+                    "symboltoken": str(self.parameters.token),
+                    "transactiontype": str(side),
+                    "exchange": "NSE",
+                    "ordertype": "MARKET",
+                    "producttype": "INTRADAY",
+                    "duration": "DAY",
+                    "quantity": str(quantity),
+                }
+
+                orderId = self.obj.placeOrder(orderparams)
+                print("The order id is: {}".format(orderId))
+            except Exception as e:
+                print("Order placement failed: {}".format(e.message))
 
     def add_positions(self, symbol, side, price_in, time_out, price_out):
-        print(datetime.now(timezone("Asia/Kolkata")))
         strategy1 = positions(
-
-
             symbol=symbol,
             time_in=datetime.now(timezone("Asia/Kolkata")),
             side=str(side),
             price_in=float(price_in),
+            quantity=int(float(self.invested) / self.list["close"]),
             time_out=datetime.now(timezone("Asia/Kolkata")),
             price_out=float(price_out),
             status="OPEN",
-            token=str(self.dicts[symbol])
+            token=str(self.parameters.token),
         )
-
+        self.current_position = strategy1
         strategy1.save()
+        self.real_orders(symbol, side)
 
-    def market_order(self):
-        nifty_price = round(self.nifty_price/50, 0)*50
-
-        self.last_market_order=self.nifty_price
-
-        symbol_sell_put = 'NIFTY'+self.parameters.weekly_expiry+str(int(nifty_price))+'PE'
-        symbol_sell_call = 'NIFTY'+self.parameters.weekly_expiry+str(int(nifty_price))+'CE'
-
-        df=pd.read_csv("datamanagement/helpful_scripts/scripts.csv")
-
-
-        for i in range(len(df)):
-            if df['symbol'][i]==symbol_sell_put:
-                self.dicts[df['symbol'][i]]=df['token'][i]
-
-            elif df['symbol'][i]==symbol_sell_call:
-                self.dicts[df['symbol'][i]]=df['token'][i]
-
-
-        sell_price_put=self.obj.ltpData("NFO", symbol_sell_put, str(self.dicts[symbol_sell_put]))['data']['ltp']
-        sell_price_call=self.obj.ltpData("NFO", symbol_sell_call, str(self.dicts[symbol_sell_call]))['data']['ltp']
-
-
-
-        symbol_buy_call='NIFTY'+self.parameters.weekly_expiry+str(int(nifty_price+500))+'CE'
-        symbol_buy_put='NIFTY'+self.parameters.weekly_expiry+str(int(nifty_price-500))+'PE'
-
-        for i in range(len(df)):
-            if df['symbol'][i]==symbol_buy_put:
-                self.dicts[df['symbol'][i]]=df['token'][i]
-
-            elif df['symbol'][i]==symbol_buy_call:
-                self.dicts[df['symbol'][i]]=df['token'][i]
-
-
-        buy_price_put=self.obj.ltpData("NFO", symbol_buy_put, str(self.dicts[symbol_buy_put]))['data']['ltp']
-        buy_price_call=self.obj.ltpData("NFO", symbol_buy_call, str(self.dicts[symbol_buy_call]))['data']['ltp']
-
-
-
-        p = self.add_positions(
-            symbol_buy_put, "LONG", buy_price_put, 0, 0)
-        p = self.add_positions(
-            symbol_buy_call, "LONG", buy_price_call, 0, 0)
-        p = self.add_positions(
-            symbol_sell_put, "SHORT", sell_price_put, 0, 0)
-        p = self.add_positions(
-            symbol_sell_call, "SHORT", sell_price_call, 0, 0)
 
     def run(self):
         try:
-            this_scripts()
-            positions.objects.all().delete()
             value = self.websocket()
             return value
         except Exception:

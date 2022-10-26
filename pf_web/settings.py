@@ -39,10 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'datamanagement',
-    'django_celery_results',
-    'django_celery_beat'
-
+    'datamanagement'
 ]
 
 MIDDLEWARE = [
@@ -147,11 +144,11 @@ LOGGING = {
     },
 
     'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,'log/info.log'),
-        },
+        # 'file': {
+        #     'level': 'DEBUG',
+        #     'class': 'logging.FileHandler',
+        #     'filename': os.path.join(BASE_DIR,'log/info.log'),
+        # },
 
         'info': {
             'level': 'INFO',
@@ -162,11 +159,11 @@ LOGGING = {
 
     },
     'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
+        # 'django': {
+        #     'handlers': ['file'],
+        #     'level': 'DEBUG',
+        #     'propagate': True,
+        # },
 
         'dev_log': {
             'handlers': ['info'],
@@ -178,9 +175,7 @@ LOGGING = {
 }
 
 
-CRONJOBS = [
-    ('*/1 * * * *', 'datamanagement.cron.hello')
-]
+
 
 CELERY_BROKER_URL='redis://127.0.0.1:6379'
 CELERY_ACCEPT_CONTENT=['application/json']
@@ -188,7 +183,7 @@ CELERY_RESULT_SERIALIZER='json'
 CELERY_TASK_SERIALIZER='json'
 CELERY_TIMEZONE='Asia/Kolkata'
 
-CELERY_RESULT_BACKEND='django-db'
+CELERY_RESULT_BACKEND='django-db'   
 
 # CELERY BEAT
 CELERY_BEAT_SCHEDULER='django_celery_beat.schedulers:DatabaseScheduler'

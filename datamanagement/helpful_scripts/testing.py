@@ -1,9 +1,11 @@
+import pyotp
 from smartapi import SmartConnect
-from smartapi import SmartWebSocket
-
-obj = SmartConnect(api_key='NuTmF22y')
-data = obj.generateSession("Y99521", "abcd@1234")
-refreshToken = data['data']['refreshToken']
-
-data=obj.ltpData("NFO", 'BANKNIFTY01SEP2239000PE', "51697")['data']['ltp']
-print(data)
+obj = SmartConnect(api_key="cOuAdu1P")
+data =obj.generateSession(
+    "B400150",
+    "Pankaj@278",
+    pyotp.TOTP("E6A6M7TCCH2FMY5U3A23FUMXKU").now(),
+)
+refreshToken = data["data"]["refreshToken"]
+feedToken = obj.getfeedToken()
+print(obj.ltpData("NSE", "MONARCH-EQ","7679")["data"]["ltp"])
